@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="topMovies"
+            type="com.example.imdbapp.features.movies.domain.model.TopMoviesItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="@dimen/toolkit_dimen18"
+        android:background="@drawable/shape_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageTopMovieItem"
+            android:layout_width="106dp"
+            android:layout_height="158dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/toolkit_dimen12"
+            android:imageUrl="@{topMovies.image}"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleTopMovieItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/toolkit_dimen18"
+            android:ellipsize="end"
+            android:lineSpacingExtra="@dimen/toolkit_dimen2"
+            android:maxLines="2"
+            android:text="@{topMovies.fullTitle}"
+            android:textColor="@color/colorTitle"
+            android:textSize="@dimen/toolkit_textSize22"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageTopMovieItem"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imdbRateTextTopMovieItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/toolkit_dimen18"
+            android:layout_marginTop="@dimen/toolkit_dimen18"
+            android:text="@string/rate"
+            android:textColor="@color/colorTitle"
+            android:textSize="@dimen/toolkit_textSize12"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/imbdbViewDottedTopMovieItemRate"
+            app:layout_constraintStart_toEndOf="@+id/imageTopMovieItem"
+            app:layout_constraintTop_toBottomOf="@id/titleTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imbdbViewDottedTopMovieItemRate"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/toolkit_dimen4"
+            android:layout_marginEnd="@dimen/toolkit_dimen4"
+            android:src="@drawable/shape_dotted"
+            app:layout_constraintBottom_toBottomOf="@+id/imdbRateTextTopMovieItem"
+            app:layout_constraintEnd_toStartOf="@id/imdbRateTopMovieItem"
+            app:layout_constraintStart_toEndOf="@id/imdbRateTextTopMovieItem"
+            app:layout_constraintTop_toTopOf="@id/imdbRateTextTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imdbRateTopMovieItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/toolkit_dimen18"
+            android:text="@{topMovies.imDbRating}"
+            android:textColor="@color/colorTitle"
+            android:textSize="@dimen/toolkit_textSize12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imdbRateVotesTextTopMovieItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/toolkit_dimen18"
+            android:text="@string/votes"
+            android:textColor="@color/colorTitle"
+            android:textSize="@dimen/toolkit_textSize12"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageTopMovieItem"
+            app:layout_constraintTop_toBottomOf="@id/imdbRateTextTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imbdbViewDottedTopMovieItemVote"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/toolkit_dimen4"
+            android:layout_marginEnd="@dimen/toolkit_dimen4"
+            android:src="@drawable/shape_dotted"
+            app:layout_constraintBottom_toBottomOf="@+id/imdbRateVotesTextTopMovieItem"
+            app:layout_constraintEnd_toStartOf="@id/imdbRateVotesTopMovieItem"
+            app:layout_constraintStart_toEndOf="@id/imdbRateVotesTextTopMovieItem"
+            app:layout_constraintTop_toTopOf="@id/imdbRateVotesTextTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imdbRateVotesTopMovieItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/toolkit_dimen18"
+            android:text="@{topMovies.imDbRatingCount}"
+            android:textColor="@color/color_votes"
+            android:textSize="@dimen/toolkit_textSize12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imdbRateTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/imdbRateTopMovieItemAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/toolkit_dimen18"
+            android:text="@string/age"
+            android:textColor="@color/colorTitle"
+            android:textSize="@dimen/toolkit_textSize12"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/imageTopMovieItem"
+            app:layout_constraintTop_toBottomOf="@id/imdbRateVotesTextTopMovieItem" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imbdbViewDottedTopMovieItemAge"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginStart="@dimen/toolkit_dimen4"
+            android:layout_marginEnd="@dimen/toolkit_dimen4"
+            android:src="@drawable/shape_dotted"
+            app:layout_constraintBottom_toBottomOf="@+id/imdbRateTopMovieItemAge"
+            app:layout_constraintEnd_toStartOf="@id/releaseDateTopMovieItem"
+            app:layout_constraintStart_toEndOf="@id/imdbRateTopMovieItemAge"
+            app:layout_constraintTop_toTopOf="@id/imdbRateTopMovieItemAge" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/releaseDateTopMovieItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/toolkit_dimen18"
+            android:text="@{topMovies.year}"
+            android:textColor="@color/colorCardView"
+            android:textSize="@dimen/toolkit_textSize12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imdbRateVotesTopMovieItem" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
